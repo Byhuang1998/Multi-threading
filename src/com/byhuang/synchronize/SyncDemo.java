@@ -21,6 +21,12 @@ public class SyncDemo {
         ts1.start();
         ts2.start();
 
+        try {
+            ts1.join();
+            ts2.join();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
 
@@ -39,7 +45,7 @@ class ThreadSend extends Thread {
 
         try {
             System.out.println("sleeping: " + currentThread().getName());
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
